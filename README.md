@@ -62,7 +62,6 @@ $("#pages").simplePagination({
 | previousButtonText | String | The text to show on the previous button | String | 'Previous' |
 | nextButtonText | String | The text to show on the next button | String | 'Next' |
 | currentPage | Number | The page to begin on | Number | 1 |
-
 | toEntriesText | String | label 'to' result | string | 'to' |
 | entriesTitle | String | label 'entries' | string | 'entries' |
 | paginatorContainer | String | id element DOM '#id' | string | '' |
