@@ -16,12 +16,16 @@
 			nextButtonClass: '',
 			previousButtonText: 'Previous',
 			nextButtonText: 'Next',
-			currentPage: 1
+			currentPage: 1,
+			toEntriesText:'to',/*edit labels for entries*/
+			entriesTitle:'entries',/*edit labels for entries*/
+			paginatorContainer:'',/*add reference to container paginator*/
+			paginatorAlign:'center'/* control alignment*/
 		};
 
 		var settings = $.extend({}, defaults, options);
 
-		return this.each(function() {
+		return this.each(function() {			
 			var $rows = $('tbody tr', this);
 			var pages = Math.ceil($rows.length/settings.perPage);
 
@@ -39,15 +43,21 @@
 
 			bPrevious.style.marginRight = '8px';
 			bNext.style.marginLeft = '8px';
-			container.style.textAlign = "center";
+			container.style.textAlign = settings.paginatorAlign;
 			container.style.marginBottom = '20px';
 
 			container.appendChild(bPrevious);
 			container.appendChild(of);
 			container.appendChild(bNext);
 
-			$(this).after(container);
-
+			if(settings.paginatorContainer==''){
+				$(this).after(container);
+			}else{
+				// this prevents create many control paginator container every time the function is called
+				$(settings.paginatorContainer).html('');
+				$(settings.paginatorContainer).append(container);
+			}
+			
 			update();
 
 			$(bNext).click(function() {
@@ -81,7 +91,8 @@
 				$rows.hide();
 				$rows.slice((from-1), to).show();
 
-				of.innerHTML = from + ' to ' + to + ' of ' + $rows.length + ' entries';
+				//reorder labels paginator
+				of.innerHTML = from +' '+settings.toEntriesText +' '+ to +' - '+ settings.entriesTitle +' : '+ $rows.length;
 
 				if ($rows.length <= settings.perPage) {
 					$(container).hide();
