@@ -46,7 +46,7 @@ $("#pages").simplePagination({
   currentPage: 2,
   previousButtonClass: "btn btn-default btn-xs",
   nextButtonClass: "btn btn-default btn-xs",
-  paginatorContainer:'#containerDivControls',/*add reference to container paginator id, if is not defined, the controls container id added by default*/
+  paginatorContainer:'#containerDivControls',/*add reference to container paginator id, if is not defined, the controls container is added by default*/
   paginatorAlign:'center'/* control alignment*/
 });
 ```
