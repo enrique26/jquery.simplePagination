@@ -45,7 +45,9 @@ $("#pages").simplePagination({
   perPage: 10,
   currentPage: 2,
   previousButtonClass: "btn btn-default btn-xs",
-  nextButtonClass: "btn btn-default btn-xs"
+  nextButtonClass: "btn btn-default btn-xs",
+  paginatorContainer:'#containerDivControls',/*add reference to container paginator id, if is not defined, the controls container id added by default*/
+  paginatorAlign:'center'/* control alignment*/
 });
 ```
 
@@ -60,6 +62,11 @@ $("#pages").simplePagination({
 | previousButtonText | String | The text to show on the previous button | String | 'Previous' |
 | nextButtonText | String | The text to show on the next button | String | 'Next' |
 | currentPage | Number | The page to begin on | Number | 1 |
+
+| toEntriesText | String | label 'to' result | string | 'to' |
+| entriesTitle | String | label 'entries' | string | 'entries' |
+| paginatorContainer | String | id element DOM '#id' | string | '' |
+| paginatorAlign | string | controls alignment | string | center |
 
 ## Demo
 
